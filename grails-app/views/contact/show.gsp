@@ -50,6 +50,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${contactInstance?.company}">
+				<li class="fieldcontain">
+					<span id="company-label" class="property-label"><g:message code="contact.company.label" default="Company" /></span>
+					
+						<span class="property-value" aria-labelledby="company-label"><g:link controller="company" action="show" id="${contactInstance?.company?.id}">${contactInstance?.company?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 			</ol>
 			<g:form url="[resource:contactInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">
