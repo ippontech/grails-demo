@@ -39,6 +39,14 @@ class Contact {
         last_name()
         first_name()
         email_address()
+
+        /**
+         * En plus de spécifier que la company s'affichera en dernière sur
+         * l'interface de Contact, on passe en paramètre nullable: true
+         * pour spécifier que la valeur "null" est acceptée pour la colonne
+         * "company".
+         */
+        company(nullable: true)
     }
 
     /**
