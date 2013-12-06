@@ -8,6 +8,12 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class CompanyController {
 
+    /**
+     * On injecte le service pour filter les
+     * données.
+     */
+    def filterPaneService
+
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
@@ -101,4 +107,18 @@ class CompanyController {
             '*'{ render status: NOT_FOUND }
         }
     }
+
+    /**
+     * On définir une méthode permettant de filter les données
+     * et d'envoyer les paramètres à la vue du domaine
+     * correspondant.
+     */
+    def filter = {
+        if(!params.max) params.max = 10
+        render( view:'index',
+                model:[ companyInstanceList: filterPaneService.filter( params, Company ),
+                        companyInstanceTotal: filterPaneService.count( params, Company ),
+               filterParams: org.grails.plugin.filterpane.FilterPaneUtils.extractFilterParams(params),
+               params:params ] )
+     }
 }

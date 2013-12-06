@@ -51,7 +51,8 @@ grails.project.dependency.resolution = {
         // runtime 'mysql:mysql-connector-java:5.1.24'
 
         /**
-         * Ajout du driver JDBC PostgreSQL
+         * Ajout du driver PostgreSQL. Il sera automatiquement
+         * ajouté lorsque Grails va recompiler ses sources.
          */
         runtime 'org.postgresql:postgresql:9.3-1100-jdbc3'
     }
@@ -63,6 +64,12 @@ grails.project.dependency.resolution = {
         // plugins for the compile step
         compile ":scaffolding:2.0.1"
         compile ':cache:1.1.1'
+
+        /**
+         * Le plugin sera automatiquement installé lorsque
+         * Grails va recompiler ses sources.
+         */
+        compile ":filterpane:2.2.5"
 
         // plugins needed at runtime but not for compilation
         runtime ":hibernate:3.6.10.4" // or ":hibernate4:4.1.11.4"

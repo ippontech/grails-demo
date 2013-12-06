@@ -26,11 +26,11 @@
 	<g:textField name="email_address" value="${contactInstance?.email_address}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: contactInstance, field: 'company', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: contactInstance, field: 'company', 'error')} ">
 	<label for="company">
 		<g:message code="contact.company.label" default="Company" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:select id="company" name="company.id" from="${fr.ippon.demo.grails.Company.list()}" optionKey="id" required="" value="${contactInstance?.company?.id}" class="many-to-one"/>
+	<g:select id="company" name="company.id" from="${fr.ippon.demo.grails.Company.list()}" optionKey="id" value="${contactInstance?.company?.id}" class="many-to-one" noSelection="['null': '']"/>
 </div>
 
