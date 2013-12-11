@@ -13,6 +13,15 @@ class ContactControllerSpec extends Specification {
         assert params != null
         // TODO: Populate valid properties like...
         //params["name"] = 'someValidName'
+
+        /**
+         * Si vous ne spécifiez pas ces paramètres,
+         * les tests qui utilisent la variable "params"
+         * échouent.
+         */
+        params["last_name"] = 'Willis'
+        params["first_name"] = 'Jean'
+        params["email_address"] = 'test@gmail.com'
     }
 
     void "Test the index action returns the correct model"() {

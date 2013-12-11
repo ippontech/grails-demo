@@ -2,20 +2,20 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: companyInstance, field: 'company_name', 'error')} ">
+<div class="fieldcontain ${hasErrors(bean: companyInstance, field: 'company_name', 'error')} required">
 	<label for="company_name">
 		<g:message code="company.company_name.label" default="Companyname" />
-		
-	</label>
-	<g:textField name="company_name" value="${companyInstance?.company_name}"/>
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: companyInstance, field: 'activityType', 'error')} required">
-	<label for="activityType">
-		<g:message code="company.activityType.label" default="Activity Type" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select name="activityType" from="${fr.ippon.demo.grails.ActivityType?.values()}" keys="${fr.ippon.demo.grails.ActivityType.values()*.name()}" required="" value="${companyInstance?.activityType?.name()}"/>
+	<g:textField name="company_name" pattern="${companyInstance.constraints.company_name.matches}" required="" value="${companyInstance?.company_name}"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: companyInstance, field: 'activityType', 'error')} ">
+	<label for="activityType">
+		<g:message code="company.activityType.label" default="Activity Type" />
+		
+	</label>
+	<g:select name="activityType" from="${fr.ippon.demo.grails.ActivityType?.values()}" keys="${fr.ippon.demo.grails.ActivityType.values()*.name()}" value="${companyInstance?.activityType?.name()}" noSelection="['': '']"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: companyInstance, field: 'contacts', 'error')} ">

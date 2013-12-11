@@ -13,6 +13,14 @@ class CompanyControllerSpec extends Specification {
         assert params != null
         // TODO: Populate valid properties like...
         //params["name"] = 'someValidName'
+
+        /**
+         * Si vous ne spécifiez pas ces paramètres,
+         * les tests qui utilisent la variable "params"
+         * échouent.
+         */
+        params["company_name"] = 'Ippon Technologies'
+        params["activityType"] = ActivityType.Informatique
     }
 
     void "Test the index action returns the correct model"() {

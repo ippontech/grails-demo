@@ -1,7 +1,5 @@
 package fr.ippon.demo.grails
 
-import java.util.List;
-
 class Company {
 
     /**
@@ -29,9 +27,15 @@ class Company {
         /**
          * Je spécifie l'ordre d'affichage des champs dans
          * l'interface qui sera automatiquement générée par Grails.
+		 * company_name ne peut pas être null ni vide, et la première
+		 * doit être une majuscule.
          */
-        company_name()
-        activityType()
+        company_name(nullable: false, blank: false, matches: /[A-Z].*/)
+
+        /**
+         * activityType peut-être null.
+         */
+        activityType(nullable: true)
     }
 
     /**

@@ -12,7 +12,15 @@ grails.project.fork = [
     //  compile: [maxMemory: 256, minMemory: 64, debug: false, maxPerm: 256, daemon:true],
 
     // configure settings for the test-app JVM, uses the daemon by default
-    test: [maxMemory: 768, minMemory: 64, debug: false, maxPerm: 256, daemon:true],
+    /**
+     * Si vous ne souhaitez pas utiliser le fork d'une JVM pour effectuer
+     * vos tests unitaires, vous pouvez spécifier test à false pour ne pas
+     * utiliser de JVM. Dans un même temps, avec la version 2.3.3, un
+     * message d'erreur concernant la JVM de test est soulevé lors
+     * du lancement des tests unitaires. Lorsque test est spécifié à false,
+     * aucun message d'erreur n'est soulevé.
+     */
+    test: false,
     // configure settings for the run-app JVM
     run: [maxMemory: 768, minMemory: 64, debug: false, maxPerm: 256, forkReserve:false],
     // configure settings for the run-war JVM

@@ -35,10 +35,21 @@ class Contact {
         /**
         * Je spécifie l'ordre d'affichage des champs dans
         * l'interface qui sera automatiquement générée par Grails.
+        * Des contraintes ont été spécifiés pour le nom de famille
+        * qui ne doit pas être null, ni vide, et doit être au minimum
+        * de 5 caractères et au maximum de 20 caractères.
         */
-        last_name()
-        first_name()
-        email_address()
+        last_name(nullable: false, blank: false, size: 5..20)
+
+        /**
+         * Le prénom ne peut pas être null ni vide.
+         */
+        first_name(nullable: false, blank: false)
+
+        /**
+         * L'adresse email doit être forcément de type email.
+         */
+        email_address(email: true)
 
         /**
          * En plus de spécifier que la company s'affichera en dernière sur
